@@ -9,7 +9,6 @@ jQuery(document).ready(function($) {
             language: '',
             end_date: null,
             start_date: null,
-            start_view: 'month',
             interval: false
         }, datepicker.data('datepickerConfig'));
 

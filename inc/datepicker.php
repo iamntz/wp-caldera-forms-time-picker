@@ -17,13 +17,22 @@ if ($field_structure['field_required']) {
 }
 
 if (!empty($field['config']['language'])) {
-	$datepickerLocalizationFile = 'assets/flatpickr/l10n/' . $field['config']['language'] . '.js';
+  $datepickerLocalizationFile = 'assets/flatpickr/l10n/' . $field['config']['language'] . '.js';
 
-	if (file_exists(NTZ_CALDERA_FORM_TIME_PICKER_PATH . $datepickerLocalizationFile)) {
-		wp_enqueue_script('cf-frontend-date-picker-lang', NTZ_CALDERA_FORM_TIME_PICKER_URL . $datepickerLocalizationFile, [Caldera_Forms_Render_Assets::field_script_to_localize_slug()], null, true);
-	} else {
-		$field['config']['language'] = '';
-	}
+  if (file_exists(NTZ_CALDERA_FORM_TIME_PICKER_PATH . $datepickerLocalizationFile)) {
+    wp_enqueue_script('cf-frontend-date-picker-lang', NTZ_CALDERA_FORM_TIME_PICKER_URL . $datepickerLocalizationFile, [Caldera_Forms_Render_Assets::field_script_to_localize_slug()], null, true);
+  } else {
+    $field['config']['language'] = '';
+  }
+}
+
+
+if (!empty($field['config']['style'])) {
+  $datepickerLocalizationFile = 'assets/flatpickr/themes/' . $field['config']['style'] . '.css';
+
+  if (file_exists(NTZ_CALDERA_FORM_TIME_PICKER_PATH . $datepickerLocalizationFile)) {
+    wp_enqueue_style('cf-frontend-date-picker-lang', NTZ_CALDERA_FORM_TIME_PICKER_URL . $datepickerLocalizationFile);
+  }
 }
 
 if (!empty($field['hide_label'])) {

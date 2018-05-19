@@ -63,27 +63,6 @@
 </div>
 
 <div class="caldera-config-group">
-	<label for="{{_id}}_startview">
-		<?php esc_html_e('Start View', 'caldera-forms'); ?>
-	</label>
-
-	<div class="caldera-config-field">
-		<select class="block-input field-config" name="{{_name}}[start_view]" id="{{_id}}_startview" aria-describedby="{{_id}}_startview-description">
-			<option value="month" {{#is start_view value="month"}}selected="selected"{{/is}}>
-				<?php esc_html_e('Month (Default)', 'caldera-forms'); ?>
-			</option>
-			<option value="year" {{#is start_view value="year"}}selected="selected"{{/is}}>
-				<?php esc_html_e('Year', 'caldera-forms'); ?>
-			</option>
-			<option value="decade" {{#is start_view value="decade"}}selected="selected"{{/is}}>
-				<?php esc_html_e('Decade', 'caldera-forms'); ?>
-			</option>
-		</select>
-		<p class="description" id="{{_id}}_startview-description"><?php _e('The starting view of the date picker (month, year, decade)', 'caldera-forms'); ?></p>
-	</div>
-</div>
-
-<div class="caldera-config-group">
 	<label for="{{_id}}_startdate">
 		<?php esc_html_e('Start Date', 'caldera-forms'); ?>
 	</label>
@@ -127,7 +106,29 @@
 	</div>
 </div>
 
-<!--  TODO: add localization  -->
+<div class="caldera-config-group">
+	<label for="{{_id}}style">
+		<?php esc_html_e('Style', 'caldera-forms'); ?>
+	</label>
+
+	<div class="caldera-config-field">
+		<select id="{{_id}}style" aria-describedby="{{_id}}style-description" class="cfdatepicker-set-style block-input field-config" id="{{id}}" name="{{_name}}[style]" style="width: 90px;">
+			<option value="">Default</option>
+			<option value="confetti" {{#is style value="confetti"}}selected="selected"{{/is}}>Confetti</option>
+			<option value="dark" {{#is style value="dark"}}selected="selected"{{/is}}>Dark</option>
+			<option value="light" {{#is style value="light"}}selected="selected"{{/is}}>Light</option>
+			<option value="material_blue" {{#is style value="material_blue"}}selected="selected"{{/is}}>Material_blue</option>
+			<option value="material_green" {{#is style value="material_green"}}selected="selected"{{/is}}>Material_green</option>
+			<option value="material_orange" {{#is style value="material_orange"}}selected="selected"{{/is}}>Material_orange</option>
+			<option value="material_red" {{#is style value="material_red"}}selected="selected"{{/is}}>Material_red</option>
+		</select>
+	</div>
+
+	<p class="description" id="{{_id}}_language-description">
+		<?php esc_html_e('This setting will affect ALL date pickers from the current page, even if they are on a separate form!', 'caldera-forms'); ?>
+	</p>
+</div>
+
 <div class="caldera-config-group">
 	<label for="{{_id}}_language">
 		<?php esc_html_e('language', 'caldera-forms'); ?>
