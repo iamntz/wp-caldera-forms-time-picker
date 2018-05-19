@@ -16,10 +16,6 @@ if ($field_structure['field_required']) {
 	$required = 'required';
 }
 
-echo '<pre style="font-size:18px">';
-print_r($field);
-echo '</pre>';
-
 if (!empty($field['config']['language'])) {
 	$datepickerLocalizationFile = 'assets/flatpickr/l10n/' . $field['config']['language'] . '.js';
 
