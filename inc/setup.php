@@ -44,23 +44,6 @@
 	</div>
 </div>
 
-<div class="caldera-config-group">
-	<label>
-		<?php esc_html_e('Autoclose', 'caldera-forms'); ?>
-	</label>
-
-	<div class="caldera-config-field">
-		<label id="{{_id}}_autoclosed">
-			<input id="{{_id}}_autoclosed" aria-describedby="{{_id}}_autoclosed-description" type="checkbox"
-				class="field-config {{_id}}_autoclosed" name="{{_name}}[autoclose]" value="1" {{#if autoclose}}checked="checked"{{/if}} />
-			<?php esc_html_e('Enable autoclose', 'caldera-forms'); ?>
-		</label>
-
-		<p class="description" id="{{_id}}_autoclosed-description">
-			<?php esc_html_e('If enabled, the date picker will automatically close after selecting the final input', 'caldera-forms'); ?>
-		</p>
-	</div>
-</div>
 
 <div class="caldera-config-group">
 	<label for="{{_id}}_startdate">

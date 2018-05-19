@@ -38,10 +38,12 @@ add_action('caldera_forms_get_field_types', function ($types) {
 			],
 		],
 		"styles" => [
-			NTZ_CALDERA_FORM_TIME_PICKER_URL . "assets/flatpickr/flatpickr{$suffix}.css",
+      NTZ_CALDERA_FORM_TIME_PICKER_URL . "assets/flatpickr/flatpickr{$suffix}.css",
+			NTZ_CALDERA_FORM_TIME_PICKER_URL . "assets/flatpickr/plugins/confirmDate/confirmDate.css",
 		],
 		"scripts" => [
 			NTZ_CALDERA_FORM_TIME_PICKER_URL . "assets/flatpickr/flatpickr{$suffix}.js",
+      NTZ_CALDERA_FORM_TIME_PICKER_URL . "assets/flatpickr/plugins/confirmDate/confirmDate.js",
 			NTZ_CALDERA_FORM_TIME_PICKER_URL . "assets/javascript/calendar_init.js",
 		],
 	];

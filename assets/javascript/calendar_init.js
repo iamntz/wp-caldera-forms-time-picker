@@ -4,6 +4,7 @@ jQuery(document).ready(function($) {
         var config = $.extend({
             custom_class: '',
             default: '',
+            autoclose: false,
             timepicker: 'none',
             format: 'F, j Y',
             language: '',
@@ -20,6 +21,7 @@ jQuery(document).ready(function($) {
           maxDate: config.end_date,
           minDate: config.start_date,
           time_24hr: config.format.indexOf('H') !== -1,
+          plugins: []
 
           //  TODO: implement events
           /*
@@ -33,6 +35,8 @@ jQuery(document).ready(function($) {
           onDayCreate: $.noop,
           */
         }
+
+        flatpickrConfig.plugins.push(new confirmDatePlugin({}));
 
         if (config.language ) {
           flatpickrConfig.locale = config.language ;
