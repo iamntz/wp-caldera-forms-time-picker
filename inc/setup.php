@@ -11,7 +11,7 @@
 
 <div class="caldera-config-group">
 	<label for="{{_id}}_format">
-		<?php esc_html_e('Format', 'caldera-forms'); ?>
+		<?php esc_html_e('Date Format', 'caldera-forms'); ?>
 	</label>
 
 	<div class="caldera-config-field">
@@ -19,7 +19,7 @@
 			id="{{id}}" name="{{_name}}[format]" value="{{format}}">
 	</div>
 
-	<p class="description" id="{{_id}}_format-description"><?php _e('You can find available formats <a href="https://flatpickr.js.org/formatting/">here</a>: ', 'caldera-forms'); ?></p>
+	<p class="description" id="{{_id}}_format-description"><?php _e('You can find all available formats <a href="https://flatpickr.js.org/formatting/" target="_blank">here</a>: ', 'caldera-forms'); ?></p>
 
 </div>
 
@@ -31,7 +31,7 @@
 	<div class="caldera-config-field">
 		<select class="block-input field-config" name="{{_name}}[timepicker]" id="{{_id}}_timepicker" aria-describedby="{{_id}}_timepicker-description">
 			<option value="none" {{#is timepicker value="none"}}selected="selected"{{/is}}>
-				<?php esc_html_e('No Time Picker', 'caldera-forms'); ?>
+				<?php esc_html_e('Only date picker', 'caldera-forms'); ?>
 			</option>
 			<option value="time" {{#is timepicker value="time"}}selected="selected"{{/is}}>
 				<?php esc_html_e('Only time picker', 'caldera-forms'); ?>
@@ -40,7 +40,7 @@
 				<?php esc_html_e('Both time and date picker', 'caldera-forms'); ?>
 			</option>
 		</select>
-		<p class="description" id="{{_id}}_timepicker-description"><?php _e('If enabled, the date picker will also have a time picker', 'caldera-forms'); ?></p>
+		<p class="description" id="{{_id}}_timepicker-description"><?php _e("If enabled, the date picker will also have a time picker. Please don't forget to also set the date format to contain a time parameter!", 'caldera-forms'); ?></p>
 	</div>
 </div>
 

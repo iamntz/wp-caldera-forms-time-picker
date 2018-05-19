@@ -20,6 +20,7 @@ jQuery(document).ready(function($) {
           noCalendar: config.timepicker === 'time',
           maxDate: config.end_date,
           minDate: config.start_date,
+          time_24hr: config.format.indexOf('H') !== -1,
 
           //  TODO: implement events
           /*
