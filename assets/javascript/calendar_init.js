@@ -39,8 +39,10 @@ jQuery(document).ready(function($) {
         flatpickrConfig.plugins.push(new confirmDatePlugin({}));
 
         if (config.language ) {
-          flatpickrConfig.locale = config.language ;
+          flatpickrConfig.locale = config.language.split('/').slice(-1)[0].split('.')[0];
         }
+
+        flatpickrConfig = $.extend({}, flatpickrConfig);
 
         datepicker.flatpickr(flatpickrConfig);
     })

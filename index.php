@@ -20,19 +20,12 @@ define('NTZ_CALDERA_FORM_TIME_PICKER_VERSION', '1.0.0');
 define('NTZ_CALDERA_FORM_TIME_PICKER_URL', plugin_dir_url(__FILE__));
 define('NTZ_CALDERA_FORM_TIME_PICKER_PATH', plugin_dir_path(__FILE__));
 
-function ntz_caldera_date_picker_is_assoc_array($arr)
-{
-	if ([] === $arr) {
-		return false;
-	}
-
-	return array_keys($arr) !== range(0, count($arr) - 1);
-}
-
 add_action('caldera_forms_get_field_types', function ($types) {
 	$suffix = defined('SCRIPT_DEBUG') && SCRIPT_DEBUG ? '.min' : '';
 
-	$types['date_picker'] = [
+	$replaceOldDatepicker = apply_filters('caldera_forms_replace_default_datepicker', false);
+
+	$types[$replaceOldDatepicker ? 'date_picker' : 'date_time_picker'] = [
 		"field" => __('Date/time Picker', 'caldera-forms'),
 		"description" => __('Date/time Picker', 'caldera-forms'),
 		'icon' => NTZ_CALDERA_FORM_TIME_PICKER_URL . 'assets/img/datepicker.svg',

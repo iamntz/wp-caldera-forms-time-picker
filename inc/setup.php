@@ -98,12 +98,17 @@
 		<select id="{{_id}}style" aria-describedby="{{_id}}style-description" class="cfdatepicker-set-style block-input field-config" id="{{id}}" name="{{_name}}[style]">
 			<option value="">Default</option>
 			<?php
-				$datepickerStyles = [ 'confetti', 'dark', 'light', 'material_blue', 'material_green', 'material_orange', 'material_red', ];
-				$datepickerStyles = apply_filters( 'ntz_caldera_forms_datepicker_styles', $datepickerStyles );
-				$isAssocThemeOptions = ntz_caldera_date_picker_is_assoc_array($datepickerStyles);
+				$defautlDatepickerStyles = ['confetti', 'dark', 'light', 'material_blue', 'material_green', 'material_orange', 'material_red'];
+
+				foreach ($defautlDatepickerStyles as $key => $value) {
+					$datepickerStyles[ NTZ_CALDERA_FORM_TIME_PICKER_URL . "assets/flatpickr/themes/{$value}.css" ] = $value;
+				}
+
+				$datepickerStyles = apply_filters( 'caldera_forms_datepicker_styles', $datepickerStyles );
+
 				foreach ($datepickerStyles as $datepickerStyleValue => $datepickerStyleText) {
 					printf( '<option value="%1$s" {{#is style value="%1$s"}}selected="selected"{{/is}}>%2$s</option>',
-						$isAssocThemeOptions ? $datepickerStyleValue : $datepickerStyleText,
+						$datepickerStyleValue,
 						ucwords(preg_replace('/_/', ' ', $datepickerStyleText)));
 				}
 			?>
@@ -125,14 +130,17 @@
 		<select id="{{_id}}_language" aria-describedby="{{_id}}_language-description" class="cfdatepicker-set-language block-input field-config" id="{{id}}" name="{{_name}}[language]">
 			<option value="">Default (en-US)</option>
 			<?php
-				$datepickerLanguages = [ 'ar', 'at', 'be', 'bg', 'bn', 'cat', 'cs', 'cy', 'da', 'de', 'eo', 'es', 'et', 'fa', 'fi', 'fr', 'gr', 'he', 'hi', 'hr', 'hu', 'id', 'it', 'ja', 'ko', 'kz', 'lt', 'lv', 'mk', 'mn', 'ms', 'my', 'nl', 'no', 'pa', 'pl', 'pt', 'ro', 'ru', 'si', 'sk', 'sl', 'sq', 'sr', 'sv', 'th', 'tr', 'uk', 'vn', 'zh',  ];
+				$defaultDatepickerLanguages = [ 'ar', 'at', 'be', 'bg', 'bn', 'cat', 'cs', 'cy', 'da', 'de', 'eo', 'es', 'et', 'fa', 'fi', 'fr', 'gr', 'he', 'hi', 'hr', 'hu', 'id', 'it', 'ja', 'ko', 'kz', 'lt', 'lv', 'mk', 'mn', 'ms', 'my', 'nl', 'no', 'pa', 'pl', 'pt', 'ro', 'ru', 'si', 'sk', 'sl', 'sq', 'sr', 'sv', 'th', 'tr', 'uk', 'vn', 'zh',  ];
 
-				$datepickerLanguages = apply_filters( 'ntz_caldera_forms_datepicker_languages', $datepickerLanguages );
-				$isAssocLanguagesOptions = ntz_caldera_date_picker_is_assoc_array($datepickerLanguages);
+				foreach ($defaultDatepickerLanguages as $key => $value) {
+					$datepickerLanguages[ NTZ_CALDERA_FORM_TIME_PICKER_URL . "assets/flatpickr/l10n/{$value}.js" ] = $value;
+				}
+
+				$datepickerLanguages = apply_filters( 'caldera_forms_datepicker_languages', $datepickerLanguages );
 
 				foreach ($datepickerLanguages as $datepickerLanguageValue => $datepickerLanguageText) {
 					printf( '<option value="%1$s" {{#is language value="%1$s"}}selected="selected"{{/is}}>%2$s</option>',
-						$isAssocThemeOptions ? $datepickerLanguageValue : $datepickerLanguageText,
+						$datepickerLanguageValue,
 						ucwords(preg_replace('/_/', ' ', $datepickerLanguageText)));
 				}
 				?>
