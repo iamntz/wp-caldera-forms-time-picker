@@ -20,6 +20,15 @@ define('NTZ_CALDERA_FORM_TIME_PICKER_VERSION', '1.0.0');
 define('NTZ_CALDERA_FORM_TIME_PICKER_URL', plugin_dir_url(__FILE__));
 define('NTZ_CALDERA_FORM_TIME_PICKER_PATH', plugin_dir_path(__FILE__));
 
+function ntz_caldera_date_picker_is_assoc_array($arr)
+{
+	if ([] === $arr) {
+		return false;
+	}
+
+	return array_keys($arr) !== range(0, count($arr) - 1);
+}
+
 add_action('caldera_forms_get_field_types', function ($types) {
 	$suffix = defined('SCRIPT_DEBUG') && SCRIPT_DEBUG ? '.min' : '';
 
@@ -38,12 +47,12 @@ add_action('caldera_forms_get_field_types', function ($types) {
 			],
 		],
 		"styles" => [
-      NTZ_CALDERA_FORM_TIME_PICKER_URL . "assets/flatpickr/flatpickr{$suffix}.css",
+			NTZ_CALDERA_FORM_TIME_PICKER_URL . "assets/flatpickr/flatpickr{$suffix}.css",
 			NTZ_CALDERA_FORM_TIME_PICKER_URL . "assets/flatpickr/plugins/confirmDate/confirmDate.css",
 		],
 		"scripts" => [
 			NTZ_CALDERA_FORM_TIME_PICKER_URL . "assets/flatpickr/flatpickr{$suffix}.js",
-      NTZ_CALDERA_FORM_TIME_PICKER_URL . "assets/flatpickr/plugins/confirmDate/confirmDate.js",
+			NTZ_CALDERA_FORM_TIME_PICKER_URL . "assets/flatpickr/plugins/confirmDate/confirmDate.js",
 			NTZ_CALDERA_FORM_TIME_PICKER_URL . "assets/javascript/calendar_init.js",
 		],
 	];

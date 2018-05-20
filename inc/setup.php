@@ -95,15 +95,19 @@
 	</label>
 
 	<div class="caldera-config-field">
-		<select id="{{_id}}style" aria-describedby="{{_id}}style-description" class="cfdatepicker-set-style block-input field-config" id="{{id}}" name="{{_name}}[style]" style="width: 90px;">
+		<select id="{{_id}}style" aria-describedby="{{_id}}style-description" class="cfdatepicker-set-style block-input field-config" id="{{id}}" name="{{_name}}[style]">
 			<option value="">Default</option>
-			<option value="confetti" {{#is style value="confetti"}}selected="selected"{{/is}}>Confetti</option>
-			<option value="dark" {{#is style value="dark"}}selected="selected"{{/is}}>Dark</option>
-			<option value="light" {{#is style value="light"}}selected="selected"{{/is}}>Light</option>
-			<option value="material_blue" {{#is style value="material_blue"}}selected="selected"{{/is}}>Material_blue</option>
-			<option value="material_green" {{#is style value="material_green"}}selected="selected"{{/is}}>Material_green</option>
-			<option value="material_orange" {{#is style value="material_orange"}}selected="selected"{{/is}}>Material_orange</option>
-			<option value="material_red" {{#is style value="material_red"}}selected="selected"{{/is}}>Material_red</option>
+			<?php
+				$datepickerStyles = [ 'confetti', 'dark', 'light', 'material_blue', 'material_green', 'material_orange', 'material_red', ];
+				$datepickerStyles = apply_filters( 'ntz_caldera_forms_datepicker_styles', $datepickerStyles );
+				$isAssocThemeOptions = ntz_caldera_date_picker_is_assoc_array($datepickerStyles);
+				foreach ($datepickerStyles as $datepickerStyleValue => $datepickerStyleText) {
+					printf( '<option value="%1$s" {{#is style value="%1$s"}}selected="selected"{{/is}}>%2$s</option>',
+						$isAssocThemeOptions ? $datepickerStyleValue : $datepickerStyleText,
+						ucwords(preg_replace('/_/', ' ', $datepickerStyleText)));
+				}
+			?>
+
 		</select>
 	</div>
 
@@ -118,58 +122,20 @@
 	</label>
 
 	<div class="caldera-config-field">
-		<select id="{{_id}}_language" aria-describedby="{{_id}}_language-description" class="cfdatepicker-set-language block-input field-config" id="{{id}}" name="{{_name}}[language]" style="width: 90px;">
-			<option value="">en-US</option>
-			<option value="ar" {{#is language value="ar"}}selected="selected"{{/is}}>ar</option>
-			<option value="at" {{#is language value="at"}}selected="selected"{{/is}}>at</option>
-			<option value="be" {{#is language value="be"}}selected="selected"{{/is}}>be</option>
-			<option value="bg" {{#is language value="bg"}}selected="selected"{{/is}}>bg</option>
-			<option value="bn" {{#is language value="bn"}}selected="selected"{{/is}}>bn</option>
-			<option value="cat" {{#is language value="cat"}}selected="selected"{{/is}}>cat</option>
-			<option value="cs" {{#is language value="cs"}}selected="selected"{{/is}}>cs</option>
-			<option value="cy" {{#is language value="cy"}}selected="selected"{{/is}}>cy</option>
-			<option value="da" {{#is language value="da"}}selected="selected"{{/is}}>da</option>
-			<option value="de" {{#is language value="de"}}selected="selected"{{/is}}>de</option>
-			<option value="eo" {{#is language value="eo"}}selected="selected"{{/is}}>eo</option>
-			<option value="es" {{#is language value="es"}}selected="selected"{{/is}}>es</option>
-			<option value="et" {{#is language value="et"}}selected="selected"{{/is}}>et</option>
-			<option value="fa" {{#is language value="fa"}}selected="selected"{{/is}}>fa</option>
-			<option value="fi" {{#is language value="fi"}}selected="selected"{{/is}}>fi</option>
-			<option value="fr" {{#is language value="fr"}}selected="selected"{{/is}}>fr</option>
-			<option value="gr" {{#is language value="gr"}}selected="selected"{{/is}}>gr</option>
-			<option value="he" {{#is language value="he"}}selected="selected"{{/is}}>he</option>
-			<option value="hi" {{#is language value="hi"}}selected="selected"{{/is}}>hi</option>
-			<option value="hr" {{#is language value="hr"}}selected="selected"{{/is}}>hr</option>
-			<option value="hu" {{#is language value="hu"}}selected="selected"{{/is}}>hu</option>
-			<option value="id" {{#is language value="id"}}selected="selected"{{/is}}>id</option>
-			<option value="it" {{#is language value="it"}}selected="selected"{{/is}}>it</option>
-			<option value="ja" {{#is language value="ja"}}selected="selected"{{/is}}>ja</option>
-			<option value="ko" {{#is language value="ko"}}selected="selected"{{/is}}>ko</option>
-			<option value="kz" {{#is language value="kz"}}selected="selected"{{/is}}>kz</option>
-			<option value="lt" {{#is language value="lt"}}selected="selected"{{/is}}>lt</option>
-			<option value="lv" {{#is language value="lv"}}selected="selected"{{/is}}>lv</option>
-			<option value="mk" {{#is language value="mk"}}selected="selected"{{/is}}>mk</option>
-			<option value="mn" {{#is language value="mn"}}selected="selected"{{/is}}>mn</option>
-			<option value="ms" {{#is language value="ms"}}selected="selected"{{/is}}>ms</option>
-			<option value="my" {{#is language value="my"}}selected="selected"{{/is}}>my</option>
-			<option value="nl" {{#is language value="nl"}}selected="selected"{{/is}}>nl</option>
-			<option value="no" {{#is language value="no"}}selected="selected"{{/is}}>no</option>
-			<option value="pa" {{#is language value="pa"}}selected="selected"{{/is}}>pa</option>
-			<option value="pl" {{#is language value="pl"}}selected="selected"{{/is}}>pl</option>
-			<option value="pt" {{#is language value="pt"}}selected="selected"{{/is}}>pt</option>
-			<option value="ro" {{#is language value="ro"}}selected="selected"{{/is}}>ro</option>
-			<option value="ru" {{#is language value="ru"}}selected="selected"{{/is}}>ru</option>
-			<option value="si" {{#is language value="si"}}selected="selected"{{/is}}>si</option>
-			<option value="sk" {{#is language value="sk"}}selected="selected"{{/is}}>sk</option>
-			<option value="sl" {{#is language value="sl"}}selected="selected"{{/is}}>sl</option>
-			<option value="sq" {{#is language value="sq"}}selected="selected"{{/is}}>sq</option>
-			<option value="sr" {{#is language value="sr"}}selected="selected"{{/is}}>sr</option>
-			<option value="sv" {{#is language value="sv"}}selected="selected"{{/is}}>sv</option>
-			<option value="th" {{#is language value="th"}}selected="selected"{{/is}}>th</option>
-			<option value="tr" {{#is language value="tr"}}selected="selected"{{/is}}>tr</option>
-			<option value="uk" {{#is language value="uk"}}selected="selected"{{/is}}>uk</option>
-			<option value="vn" {{#is language value="vn"}}selected="selected"{{/is}}>vn</option>
-			<option value="zh" {{#is language value="zh"}}selected="selected"{{/is}}>zh</option>
+		<select id="{{_id}}_language" aria-describedby="{{_id}}_language-description" class="cfdatepicker-set-language block-input field-config" id="{{id}}" name="{{_name}}[language]">
+			<option value="">Default (en-US)</option>
+			<?php
+				$datepickerLanguages = [ 'ar', 'at', 'be', 'bg', 'bn', 'cat', 'cs', 'cy', 'da', 'de', 'eo', 'es', 'et', 'fa', 'fi', 'fr', 'gr', 'he', 'hi', 'hr', 'hu', 'id', 'it', 'ja', 'ko', 'kz', 'lt', 'lv', 'mk', 'mn', 'ms', 'my', 'nl', 'no', 'pa', 'pl', 'pt', 'ro', 'ru', 'si', 'sk', 'sl', 'sq', 'sr', 'sv', 'th', 'tr', 'uk', 'vn', 'zh',  ];
+
+				$datepickerLanguages = apply_filters( 'ntz_caldera_forms_datepicker_languages', $datepickerLanguages );
+				$isAssocLanguagesOptions = ntz_caldera_date_picker_is_assoc_array($datepickerLanguages);
+
+				foreach ($datepickerLanguages as $datepickerLanguageValue => $datepickerLanguageText) {
+					printf( '<option value="%1$s" {{#is language value="%1$s"}}selected="selected"{{/is}}>%2$s</option>',
+						$isAssocThemeOptions ? $datepickerLanguageValue : $datepickerLanguageText,
+						ucwords(preg_replace('/_/', ' ', $datepickerLanguageText)));
+				}
+				?>
 		</select>
 
 		<p class="description" id="{{_id}}_language-description">
