@@ -43,7 +43,6 @@ Please note that changing a datepicker theme will affect **ALL** other flatpickr
 
 #### Todo
 - [ ] Add JS hooks for each field;
-- [ ] Tweak settings a bit (e.g. hide start/end dates when only timepicker is active);
 
 #### Contribute
 You are more than welcome to submit any pull requests if you find bugs or anything to improve!

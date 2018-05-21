@@ -29,7 +29,9 @@
 	</label>
 
 	<div class="caldera-config-field">
-		<select class="block-input field-config" name="{{_name}}[timepicker]" id="{{_id}}_timepicker" aria-describedby="{{_id}}_timepicker-description">
+		<select class="block-input field-config" name="{{_name}}[timepicker]" id="{{_id}}_timepicker"
+			data-id="{{_id}}"
+			aria-describedby="{{_id}}_timepicker-description">
 			<option value="none" {{#is timepicker value="none"}}selected="selected"{{/is}}>
 				<?php esc_html_e('Only date picker', 'caldera-forms'); ?>
 			</option>
@@ -44,9 +46,9 @@
 	</div>
 </div>
 
-<div class="caldera-config-group">
+<div class="caldera-config-group" data-id="{{_id}}" data-hide-when-datepicker-is="none">
 	<label>
-		<?php esc_html_e('Time picker Format', 'caldera-forms'); ?>
+		<?php esc_html_e('Time Format', 'caldera-forms'); ?>
 	</label>
 
 	<div class="caldera-config-field">
@@ -61,8 +63,7 @@
 	</div>
 </div>
 
-
-<div class="caldera-config-group">
+<div class="caldera-config-group" data-id="{{_id}}" data-hide-when-datepicker-is="time">
 	<label for="{{_id}}_startdate">
 		<?php esc_html_e('Start Date', 'caldera-forms'); ?>
 	</label>
@@ -75,7 +76,7 @@
 	</div>
 </div>
 
-<div class="caldera-config-group">
+<div class="caldera-config-group" data-id="{{_id}}" data-hide-when-datepicker-is="time">
 	<label for="{{_id}}_end-date">
 		<?php esc_html_e('End Date', 'caldera-forms'); ?>
 	</label>
@@ -88,7 +89,7 @@
 	</div>
 </div>
 
-<div class="caldera-config-group">
+<div class="caldera-config-group" data-id="{{_id}}" data-hide-when-datepicker-is="time">
 	<label>
 		<?php esc_html_e('Allow interval selection', 'caldera-forms'); ?>
 	</label>
@@ -106,7 +107,7 @@
 	</div>
 </div>
 
-<div class="caldera-config-group">
+<div class="caldera-config-group" data-id="{{_id}}" data-hide-when-datepicker-is="time">
 	<label>
 		<?php esc_html_e('First day of the week', 'caldera-forms'); ?>
 	</label>
@@ -158,7 +159,7 @@
 
 <div class="caldera-config-group">
 	<label for="{{_id}}_language">
-		<?php esc_html_e('language', 'caldera-forms'); ?>
+		<?php esc_html_e('Language', 'caldera-forms'); ?>
 	</label>
 
 	<div class="caldera-config-field">
@@ -186,3 +187,9 @@
 		</p>
 	</div>
 </div>
+
+
+
+{{#script}}
+<?php require NTZ_CALDERA_FORM_TIME_PICKER_PATH . '/assets/javascript/calendar_setup.js'; ?>
+{{/script}}
