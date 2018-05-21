@@ -44,6 +44,23 @@
 	</div>
 </div>
 
+<div class="caldera-config-group">
+	<label>
+		<?php esc_html_e('Time picker Format', 'caldera-forms'); ?>
+	</label>
+
+	<div class="caldera-config-field">
+		<select class="block-input field-config" name="{{_name}}[timepicker_format]" id="{{_id}}_timepicker_format" aria-describedby="{{_id}}_timepicker_format-description">
+			<option value="12" {{#is timepicker_format value="12"}}selected="selected"{{/is}}>
+				<?php esc_html_e('AM/PM', 'caldera-forms'); ?>
+			</option>
+			<option value="24" {{#is timepicker_format value="24"}}selected="selected"{{/is}}>
+				<?php esc_html_e('24h', 'caldera-forms'); ?>
+			</option>
+		</select>
+	</div>
+</div>
+
 
 <div class="caldera-config-group">
 	<label for="{{_id}}_startdate">
@@ -79,13 +96,31 @@
 	<div class="caldera-config-field">
 		<label id="{{_id}}_interval">
 			<input id="{{_id}}_interval" aria-describedby="{{_id}}_interval-description" type="checkbox"
-				class="field-config {{_id}}_interval" name="{{_name}}[interval]" value="1" {{#if autoclose}}checked="checked"{{/if}} />
+				class="field-config {{_id}}_interval" name="{{_name}}[interval]" value="1" {{#if interval}}checked="checked"{{/if}} />
 			<?php esc_html_e('Enable interval selection', 'caldera-forms'); ?>
 		</label>
 
 		<p class="description" id="{{_id}}_interval-description">
 			<?php esc_html_e("If enabled, the user will be able to select a date interval (start->end)", 'caldera-forms'); ?>
 		</p>
+	</div>
+</div>
+
+<div class="caldera-config-group">
+	<label>
+		<?php esc_html_e('First day of the week', 'caldera-forms'); ?>
+	</label>
+
+	<div class="caldera-config-field">
+		<select class="block-input field-config" name="{{_name}}[first_day_of_the_week]" id="{{_id}}_first_day_of_the_week" aria-describedby="{{_id}}_first_day_of_the_week-description">
+			<option value="monday" {{#is first_day_of_the_week value="monday"}}selected="selected"{{/is}}>
+				<?php esc_html_e('Monday', 'caldera-forms'); ?>
+			</option>
+
+			<option value="sunday" {{#is first_day_of_the_week value="sunday"}}selected="selected"{{/is}}>
+				<?php esc_html_e('Sunday', 'caldera-forms'); ?>
+			</option>
+		</select>
 	</div>
 </div>
 
