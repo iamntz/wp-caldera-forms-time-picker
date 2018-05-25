@@ -1,6 +1,6 @@
 jQuery(document).ready(function($) {
-    $('[data-datepicker-config]').each(function(i, datepicker) {
-        datepicker = $(datepicker);
+
+    function initDatepicker(datepicker) {
         var config = $.extend({
             custom_class: '',
             default: '',
@@ -47,7 +47,12 @@ jQuery(document).ready(function($) {
         }
 
         flatpickrConfig = $.extend({}, flatpickrConfig);
+        datepicker.addClass('datepicker-init');
 
-        datepicker.flatpickr(flatpickrConfig);
-    })
+        return datepicker.flatpickr(flatpickrConfig)
+    }
+
+    $(document).on('focus', '[data-datepicker-config]:not(.datepicker-init)', function(e){
+        initDatepicker($(e.currentTarget))
+    });
 });
