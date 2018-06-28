@@ -1,5 +1,4 @@
 jQuery(document).ready(function($) {
-
     function initDatepicker(datepicker) {
         var config = $.extend({
             custom_class: '',
@@ -13,6 +12,14 @@ jQuery(document).ready(function($) {
             interval: false,
             timepicker_format: '12'
         }, datepicker.data('datepickerConfig'));
+
+        if (config.end_date !== '' && ("" + config.end_date).search(/(\-|\+\d)/) !== -1) {
+            config.end_date = new Date().fp_incr(config.end_date);
+        }
+
+        if (config.start_date !== '' && ("" + config.start_date).search(/(\-|\+\d)/) !== -1) {
+            config.start_date = new Date().fp_incr(config.start_date);
+        }
 
         var flatpickrConfig = {
             enableTime: config.timepicker !== 'none',

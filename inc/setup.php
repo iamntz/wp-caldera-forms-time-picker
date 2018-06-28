@@ -19,7 +19,7 @@
 			id="{{id}}" name="{{_name}}[format]" value="{{format}}">
 	</div>
 
-	<p class="description" id="{{_id}}_format-description"><?php _e('You can find all available formats <a href="https://flatpickr.js.org/formatting/" target="_blank">here</a>: ', 'caldera-forms'); ?></p>
+	<p class="description" id="{{_id}}_format-description"><?php _e('You can find all available formats <a href="https://flatpickr.js.org/formatting/" target="_blank">here</a>.', 'caldera-forms'); ?></p>
 
 </div>
 
@@ -71,7 +71,7 @@
 	<div class="caldera-config-field">
 		<input id="{{_id}}_startdate" aria-describedby="{{_id}}_startdate-description" type="text" class="cfdatepicker-set-format block-input field-config" name="{{_name}}[start_date]" value="{{start_date}}">
 		<p class="description" id="{{_id}}_startdate-description">
-			<?php esc_html_e('The starting date of the date picker like <code>today</code>. Please follow the same date format you used above!', 'caldera-forms'); ?>
+			<?php _e('The minimum selectable date, like <code>today</code>, <code>-10</code> or <code>+100</code>. You can also specify an exact date, but please follow the same date format you used above!', 'caldera-forms'); ?>
 		</p>
 	</div>
 </div>
@@ -84,7 +84,7 @@
 	<div class="caldera-config-field">
 		<input id="{{_id}}_end-date" aria-describedby="{{_id}}_end-date-description" type="text" class="cfdatepicker-set-format block-input field-config" name="{{_name}}[end_date]" value="{{end_date}}">
 		<p class="description" id="{{_id}}_end-date-description">
-				<?php esc_html_e('The starting date of the date picker like <code>today</code>. Please follow the same date format you used above!', 'caldera-forms'); ?>
+				<?php _e('The maximum selectable date, like <code>today</code>, <code>-10</code> or <code>+100</code>. You can also specify an exact date, but please follow the same date format you used above!', 'caldera-forms'); ?>
 		</p>
 	</div>
 </div>
