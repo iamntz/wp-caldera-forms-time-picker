@@ -2,7 +2,7 @@
 $has_lang = '';
 
 $attrs = [
-	'type' => 'text',
+	'type' => 'datetime-local',
 	'name' => $field_name,
 	'value' => $field_value,
 	'id' => Caldera_Forms_Field_Util::get_base_id($field),
