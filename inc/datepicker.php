@@ -37,6 +37,15 @@ if (!empty($field['hide_label'])) {
 }
 
 $attr_string = caldera_forms_field_attributes($attrs, $field, $form);
+
+$field['config']['format'] = preg_replace_callback('/\{\{([^\}]+)\}\}/', function ($match) {
+	if (empty($match[1])) {
+		return;
+	}
+
+  return '\\' . implode('\\', str_split(trim($match[1])));
+}, $field['config']['format']);
+
 $attr_string .= sprintf(" data-datepicker-config='%s'", json_encode($field['config']));
 ?>
 

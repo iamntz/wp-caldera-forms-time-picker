@@ -19,7 +19,14 @@
 			id="{{id}}" name="{{_name}}[format]" value="{{format}}">
 	</div>
 
-	<p class="description" id="{{_id}}_format-description"><?php _e('You can find all available formats <a href="https://flatpickr.js.org/formatting/" target="_blank">here</a>.', 'caldera-forms'); ?></p>
+	<style type="text/css" media="screen">
+		.caldera-config-group code code {
+			padding: 0;
+		  background: transparent;
+		}
+	</style>
+
+	<p class="description" id="{{_id}}_format-description"><?php _e('You can find all available formats <a href="https://flatpickr.js.org/formatting/" target="_blank">here</a>. Need to escape a string? Wrap it like <code>{<code>{this}</code>}</code> and it will be automatically converted to <code>\t\h\i\s</code>.', 'caldera-forms'); ?></p>
 
 </div>
 
@@ -53,10 +60,10 @@
 
 	<div class="caldera-config-field">
 		<select class="block-input field-config" name="{{_name}}[timepicker_format]" id="{{_id}}_timepicker_format" aria-describedby="{{_id}}_timepicker_format-description">
-			<option value="12" {{#is timepicker_format value="12"}}selected="selected"{{/is}}>
+			<option value="12h" {{#is timepicker_format value="12h"}}selected="selected"{{/is}}>
 				<?php esc_html_e('AM/PM', 'caldera-forms'); ?>
 			</option>
-			<option value="24" {{#is timepicker_format value="24"}}selected="selected"{{/is}}>
+			<option value="24h" {{#is timepicker_format value="24h"}}selected="selected"{{/is}}>
 				<?php esc_html_e('24h', 'caldera-forms'); ?>
 			</option>
 		</select>

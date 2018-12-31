@@ -4,7 +4,7 @@
 Plugin Name: Caldera Form Time Picker
 Description: A time picker for Caldera Forms
 Author: Ionuț Staicu
-Version: 1.0.0
+Version: 1.0.1
 Author URI: http://ionutstaicu.com
 Slug: caldera_form_time_picker
  */
@@ -15,7 +15,7 @@ if (!defined('ABSPATH')) {
 	exit;
 }
 
-define('NTZ_CALDERA_FORM_TIME_PICKER_VERSION', '1.0.0');
+define('NTZ_CALDERA_FORM_TIME_PICKER_VERSION', '1.0.1');
 
 define('NTZ_CALDERA_FORM_TIME_PICKER_URL', plugin_dir_url(__FILE__));
 define('NTZ_CALDERA_FORM_TIME_PICKER_PATH', plugin_dir_path(__FILE__));
