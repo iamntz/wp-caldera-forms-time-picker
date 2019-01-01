@@ -19,14 +19,7 @@
 			id="{{id}}" name="{{_name}}[format]" value="{{format}}">
 	</div>
 
-	<style type="text/css" media="screen">
-		.caldera-config-group code code {
-			padding: 0;
-		  background: transparent;
-		}
-	</style>
-
-	<p class="description" id="{{_id}}_format-description"><?php _e('You can find all available formats <a href="https://flatpickr.js.org/formatting/" target="_blank">here</a>. Need to escape a string? Wrap it like <code>{<code>{this}</code>}</code> and it will be automatically converted to <code>\t\h\i\s</code>.', 'caldera-forms'); ?></p>
+	<p class="description" id="{{_id}}_format-description"><?php _e('You can find all available formats <a href="https://flatpickr.js.org/formatting/" target="_blank">here</a>. Need to escape a string? Wrap it like <code>{<span>{this}</span>}</code> and it will be automatically converted to <code>\t\h\i\s</code>.', 'caldera-forms'); ?></p>
 
 </div>
 
